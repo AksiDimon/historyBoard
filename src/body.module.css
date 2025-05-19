@@ -1,0 +1,238 @@
+ body{
+    padding: 0;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+
+}
+html{
+    zoom: 0.5;
+}
+.lineHorisontal{
+position: absolute;
+width: 1440px;
+height: 0px;
+left: 320px;
+top: 480px;
+
+opacity: 0.1;
+/* Black blue */
+border: 1px solid #42567A;
+
+}
+.rightLine {
+    /* Vector 2 */
+
+position: absolute;
+width: 0px;
+height: 1080px;
+left: 1760px;
+top: 0px;
+
+opacity: 0.1;
+/* Black blue */
+border: 1px solid #42567A;
+
+}
+.lineVertical{
+/* Vector 4 */
+
+position: absolute;
+width: 0px;
+height: 1080px;
+left: 1040px;
+top: 0px;
+
+opacity: 0.1;
+/* Black blue */
+border: 1px solid #42567A;
+
+}
+
+.leftLine {
+    /* Vector 1 */
+
+position: absolute;
+width: 0px;
+height: 1080px;
+left: 320px;
+top: 0px;
+
+opacity: 0.1;
+/* Black blue */
+border: 1px solid #42567A;
+
+}
+.cercle{
+    /* Ellipse 304 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 530px;
+height: 530px;
+left: 775px;
+top: 215px;
+border-radius: 50%;
+opacity: 0.2;
+/* Black blue */
+border: 1px solid #42567A;
+
+}
+.gradientHeader{
+    /* Vector 17 */
+background-image: linear-gradient(blue 25%, pink 75%);
+position: absolute;
+width: 3px;
+height: 120px;
+left: 322px;
+top: 177px;
+}
+.headerName{
+    /* Исторические даты */
+
+position: absolute;
+width: 353px;
+height: 134px;
+left: 400px;
+top: 170px;
+
+font-family: 'PT Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 56px;
+line-height: 120%;
+/* or 67px */
+
+/* Black blue */
+color: #42567A;
+
+
+}
+
+.yearsStartEnd{
+    font-size: 10rem;
+    position: absolute;
+
+    left: 42.7%;
+    top: 25.9%;
+    transform: translate(-50%, -50%);
+}
+.buttonLeft{
+    /* Group 3277 */
+border: none;
+background-color: #42567a00;
+opacity: 0.5;
+  transition: color .2s, opacity .2s;
+position: absolute;
+width: 50px;
+height: 50px;
+left: 400px;
+top: 785px;
+
+/* transform: matrix(0, -1, -1, 0, 0, 0); */
+
+}
+.buttonLeft:hover{
+    background-color: #42567a00;
+    opacity: 1;
+    /* background-color: #42567a93;
+    border-radius: 50%; */
+    
+}
+.buttonLeft:hover svg circle,
+.buttonLeft:hover svg path {
+  stroke-width: 3;              /* новая, «жирнее» толщина */
+}
+
+.buttonRight{
+/* Group 28422798 */
+border: none;
+background-color: #42567a00;
+opacity: 0.5;
+transition: color .2s, opacity .2s;
+position: absolute;
+width: 50px;
+height: 50px;
+left: 470px;
+top: 785px;
+}
+.buttonRight:hover{
+    background-color: #42567a00;
+    opacity: 1;
+    /* background-color: #42567a93;
+    border-radius: 50%; */
+    
+}
+.buttonRight:hover svg circle,
+.buttonRight:hover svg path {
+  stroke-width: 3;              /* новая, «жирнее» толщина */
+}
+
+.descriptionEvents{
+    display: flex;
+    flex: 1;
+    
+    
+    /* margin: 0 20% 0 16%; */
+}
+
+.descriptionText{
+    border: 1px solid brown;
+    white-space: wrap;
+    
+
+    /* width: 400px;
+    height: 90px; */
+    
+
+font-family: 'PT Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+/* or 150% */
+
+/* Black blue */
+color: #42567A;
+
+
+}
+
+
+/* классы для скрола текста*/
+.viewport{
+    /* position: relative; */
+    width: 50%;          /* или любая фиксированная/процентная ширина */
+    margin: 0 50px 0 50px;
+    overflow: hidden;    /* скрываем всё, что выходит за пределы */
+}
+
+.track {
+    display: flex;
+    /* Плавный переход при изменении transform */
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    flex: 0 0 100%;      /* каждый слайд занимает всю ширину viewport */
+    display: flex;
+    /* при желании gap между элементами внутри слайда */
+  }
+  
+  .slideItem {
+    padding: 0 25px;
+    /* text-align: center; */
+  }
+
+  .bigYears{
+    margin: 2rem;
+    color: #5D5FEF ;
+    font-family: PT Sans;
+    font-weight: 700;
+  }
+  
+
+
+
+

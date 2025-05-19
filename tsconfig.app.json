@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2022", "ES5", "DOM"],
+    "jsx": "react-jsx",  // Позволяет использовать JSX в TypeScript
+    "strict": true,      // Включение строгой проверки типов
+    "noUnusedLocals": true, // Убирает неиспользуемые переменные
+    "noUnusedParameters": true, // Убирает неиспользуемые параметры функций
+    "noFallthroughCasesInSwitch": true, // Предотвращает "провал" в case в switch
+    "moduleResolution": "node", // Для работы с модулями в Vite
+    "skipLibCheck": true, // Пропускает проверку типов в библиотеках
+    "isolatedModules": true // Ожидает, что каждый файл будет являться отдельным модулем
+  },
+  "include": ["src"]
+}

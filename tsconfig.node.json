@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+  
+    "moduleResolution": "nodenext", 
+    "skipLibCheck": true,
+    "noEmit": true, // Для конфигурации Node (сборка Vite)
+    "isolatedModules": true
+  },
+  "include": ["vite.config.ts"]
+}
