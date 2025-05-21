@@ -35,10 +35,12 @@ export function BlockCarusel({ blocks }: Props) {
 
   return (
     <>
-    <div  className={s.yearsStartEnd} style={{display: 'flex', flex: '1'}}>
-        <div className={s.bigYears} >{startYear}</div>
-        <div className={s.bigYears} style= {{color: '#ef5dbc'}} >{endYear}</div>
-    </div>
+      <div className={s.yearsStartEnd} style={{ display: 'flex', flex: '1' }}>
+        <div className={s.bigYears}>{startYear}</div>
+        <div className={s.bigYears} style={{ color: '#ef5dbc' }}>
+          {endYear}
+        </div>
+      </div>
       {/* <p className={s.yearsStartEnd}>
         {startYear} - {endYear}
       </p> */}
@@ -99,7 +101,7 @@ export function BlockCarusel({ blocks }: Props) {
         style={{ position: 'absolute', top: '92vh', left: '32vw' }}
       >
         <div
-        //   className={s.descriptionEvents} style={{ margin: '0 20% 0 16%' }}
+          //   className={s.descriptionEvents} style={{ margin: '0 20% 0 16%' }}
           className={s.track}
           style={{ transform: `translateX(${-currentIndex * 100}%)` }}
         >
@@ -107,11 +109,7 @@ export function BlockCarusel({ blocks }: Props) {
             <div className={s.slide} key={idx}>
               {block.data.map((obj) => {
                 return (
-                  <div
-                    key={obj.yaer}
-                    
-                    className={s.slideItem}
-                  >
+                  <div key={obj.yaer} className={s.slideItem}>
                     <h3> {obj.yaer}</h3>
                     <p className={s.descriptionText}> {obj.description}</p>
                   </div>
@@ -130,9 +128,7 @@ export function BlockCarusel({ blocks }: Props) {
           borderRadius: '50%',
           background: 'none',
           opacity: currentIndex === lastIndex ? '0' : '0.5',
-          
         }}
-        // disabled ={currentIndex === lastIndex }
         onClick={onNext}
       >
         {' '}
@@ -147,9 +143,7 @@ export function BlockCarusel({ blocks }: Props) {
           borderRadius: '50%',
           background: 'none',
           opacity: currentIndex === 0 ? '0' : '0.5',
-          
         }}
-        // disabled = {currentIndex === 0}
         onClick={onPrev}
       >
         {' '}
@@ -158,6 +152,8 @@ export function BlockCarusel({ blocks }: Props) {
     </>
   );
 }
+
+
 
 
 
@@ -195,7 +191,6 @@ export function BlockCarusel({ blocks }: Props) {
 //   const [currentIndex, setCurrentIndex] = useState(0);
 //   const lastIndex = blocks.length - 1;
 //   const block = blocks[currentIndex];
-
 
 // console.log(currentIndex, lastIndex)
 //   function getYearPeriod<T extends Description>(data: T[]) {
@@ -278,7 +273,7 @@ export function BlockCarusel({ blocks }: Props) {
 //         </svg>
 //       </button>
 //       <div style={{ position: 'absolute', top: '105vh', padding: '0 35px 0 35px' }}>
-//         <div className={s.descriptionEvents} 
+//         <div className={s.descriptionEvents}
 //         style={{margin: '0 20% 0 16%'}}>
 //           {
 //             blocks[currentIndex].data.map((obj) => {
