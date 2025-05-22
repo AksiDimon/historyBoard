@@ -8,101 +8,80 @@
 html{
     zoom: 0.5;
 }
+
+
+
 .lineHorisontal{
 position: absolute;
-width: 1440px;
-height: 0px;
-left: 320px;
-top: 480px;
-
+top: 50%;
+left: 10%;
+right: 10%;
 opacity: 0.1;
-/* Black blue */
-border: 1px solid #42567A;
+border-top: 1px solid #42567A;
 
 }
 .rightLine {
-    /* Vector 2 */
-
 position: absolute;
-width: 0px;
-height: 1080px;
-left: 1760px;
-top: 0px;
-
+height: 100%;
+left: 90%;
 opacity: 0.1;
-/* Black blue */
-border: 1px solid #42567A;
-
+border-right: 1px solid #42567A;
 }
 .lineVertical{
 /* Vector 4 */
-
 position: absolute;
-width: 0px;
-height: 1080px;
-left: 1040px;
+height: 100%;
+left: 50%;
 top: 0px;
-
 opacity: 0.1;
-/* Black blue */
-border: 1px solid #42567A;
-
+border-right: 1px solid #42567A;
 }
 
 .leftLine {
     /* Vector 1 */
-
 position: absolute;
-width: 0px;
-height: 1080px;
-left: 320px;
-top: 0px;
-
+height: 100%;
+left: 10%;
 opacity: 0.1;
-/* Black blue */
-border: 1px solid #42567A;
+border-right: 1px solid #42567A;
 
 }
-.cercle{
-    /* Ellipse 304 */
 
-box-sizing: border-box;
-
-position: absolute;
-width: 530px;
-height: 530px;
-left: 775px;
-top: 215px;
-border-radius: 50%;
-opacity: 0.2;
-/* Black blue */
-border: 1px solid #42567A;
-
+.cercle {
+ position: absolute;
+   top: 50%;
+   left: 51.5%;
+   width: 50%;
+   max-width: 600px;
+   aspect-ratio: 1 / 1;
+   transform: translate(-50%, -50%);
+   border-radius: 50%;
+  border: 1px solid rgba(66, 86, 122, 0.2);
 }
+
 .gradientHeader{
     /* Vector 17 */
 background-image: linear-gradient(blue 25%, pink 75%);
 position: absolute;
-width: 3px;
-height: 120px;
-left: 322px;
-top: 177px;
+max-width: 0.5rem;
+min-width: 0.2rem;
+width: 1.5rem;
+height: 8.5%;
+left: 10%;
+top: 12%;
 }
 .headerName{
-    /* Исторические даты */
 
 position: absolute;
-width: 353px;
-height: 134px;
-left: 400px;
-top: 170px;
+max-width: 353px;
+max-height: 134px;
+left: 17%;
+top: 12%;
 
 font-family: 'PT Sans';
 font-style: normal;
 font-weight: 700;
-font-size: 56px;
-line-height: 120%;
-/* or 67px */
+font-size: 3.5rem;
 
 /* Black blue */
 color: #42567A;
@@ -111,11 +90,11 @@ color: #42567A;
 }
 
 .yearsStartEnd{
-    font-size: 10rem;
+    font-size: 18vw;
     position: absolute;
 
-    left: 42.7%;
-    top: 25.9%;
+    left: 51.5%;
+    top: 50%;
     transform: translate(-50%, -50%);
 }
 .buttonLeft{
@@ -125,12 +104,12 @@ background-color: #42567a00;
 opacity: 0.5;
   transition: color .2s, opacity .2s;
 position: absolute;
-width: 50px;
-height: 50px;
-left: 400px;
-top: 785px;
+max-width: 50px;
+max-height: 50px;
+left: 17%;
+top: 67%;
 
-/* transform: matrix(0, -1, -1, 0, 0, 0); */
+
 
 }
 .buttonLeft:hover{
@@ -154,8 +133,8 @@ transition: color .2s, opacity .2s;
 position: absolute;
 width: 50px;
 height: 50px;
-left: 470px;
-top: 785px;
+left: 20%;
+top: 67%;
 }
 .buttonRight:hover{
     background-color: #42567a00;
@@ -202,10 +181,13 @@ color: #42567A;
 
 /* классы для скрола текста*/
 .viewport{
-    /* position: relative; */
-    width: 50%;          /* или любая фиксированная/процентная ширина */
-    margin: 0 50px 0 50px;
+    flex: 1;
+    width: 66%;          /* или любая фиксированная/процентная ширина */
+    /* margin: 0 10% 0 10%; */
     overflow: hidden;    /* скрываем всё, что выходит за пределы */
+    /* position: absolute; */
+    /* top: 75%;
+    left: 18%; */
 }
 
 .track {
@@ -222,7 +204,24 @@ color: #42567A;
   
   .slideItem {
     padding: 0 25px;
-    /* text-align: center; */
+  }
+
+  .btnCarouselLeft{
+    position: absolute;
+    top: 80%;
+    left: 15%;
+    background: none;
+    border-radius: 50% ;
+    font-size: 2rem;
+  }
+
+  .btnCarouselRight{
+    position: absolute;
+    top: 80%;
+    left: 85%;
+    background: none;
+    border-radius: 60% ;
+    font-size: 2rem;
   }
 
   .bigYears{
@@ -235,4 +234,63 @@ color: #42567A;
 
 
 
+
+
+
+
+
+
+
+  
+
+
+
+
+.carouselWrapper {
+  max-width: 80%;
+  display: flex;
+  align-items: center;
+  /* width: 100%; */
+  box-sizing: border-box;
+  padding: 0 1rem; /* по бокам отступы */
+}
+
+
+
+/*  СТИЛИ Круга */
+
+
+.dot{
+    position: absolute;
+    background: black;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    left: 50%;
+    top:50%;
+    transform-origin: center center;
+}
+
+
+.hoveredBlock {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    font-size: 0px;
+    transform: translate(50%, 50%);
+        z-index: 1;
+}
+
+
+.dot:hover{
+width: 56px;
+height: 56px;
+background: #F4F5F9;
+border: 1px solid rgba(48, 62, 88, 0.5);
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    z-index: 1;
+}
 

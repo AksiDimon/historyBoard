@@ -1,16 +1,18 @@
 import s from './/body.module.css';
-import { useState } from 'react';
+
 import { SphereBlock, Description } from './mock/types';
 
-interface Props {
+export interface Props {
   blocks: SphereBlock[];
+  onNext: () => void;
+  onPrev: () => void;
+  currentIndex: number
 }
-export function BlockCarusel({ blocks }: Props) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export function BlockCarusel({ blocks, onPrev, onNext, currentIndex }: Props) {
+  // const [currentIndex, setCurrentIndex] = useState(0);
   const lastIndex = blocks.length - 1;
   const block = blocks[currentIndex];
 
-  console.log(currentIndex, lastIndex);
   function getYearPeriod<T extends Description>(data: T[]) {
     return {
       startYear: data[0].yaer,
@@ -19,19 +21,19 @@ export function BlockCarusel({ blocks }: Props) {
   }
   const { startYear, endYear } = getYearPeriod(block.data);
 
-  function onPrev() {
-    setCurrentIndex((prev) => {
-      return Math.max(prev - 1, 0);
-    });
-  }
-  function onNext() {
-    setCurrentIndex((prev) => {
-      // if(prev + 1 > blocks.length - 1) {
-      //     return 0
-      // }
-      return Math.min(prev + 1, blocks.length - 1);
-    });
-  }
+  // function onPrev() {
+  //   setCurrentIndex((prev) => {
+  //     return Math.max(prev - 1, 0);
+  //   });
+  // }
+  // function onNext() {
+  //   setCurrentIndex((prev) => {
+  //     // if(prev + 1 > blocks.length - 1) {
+  //     //     return 0
+  //     // }
+  //     return Math.min(prev + 1, blocks.length - 1);
+  //   });
+  // }
 
   return (
     <>
@@ -44,7 +46,7 @@ export function BlockCarusel({ blocks }: Props) {
       {/* <p className={s.yearsStartEnd}>
         {startYear} - {endYear}
       </p> */}
-      <p className={s.buttonLeft} style={{ top: '730px', left: '410px' }}>
+      <p className={s.buttonLeft} style={{ top: '63%', left: '18%' }}>
         {' '}
         {(currentIndex + 1).toString().padStart(2, '0')} /{' '}
         {(lastIndex + 1).toString().padStart(2, '0')}
@@ -98,7 +100,7 @@ export function BlockCarusel({ blocks }: Props) {
       </button>
       <div
         className={s.viewport}
-        style={{ position: 'absolute', top: '92vh', left: '32vw' }}
+        style={{ position: 'absolute', top: '75%', left: '18%' }}
       >
         <div
           //   className={s.descriptionEvents} style={{ margin: '0 20% 0 16%' }}
@@ -120,64 +122,32 @@ export function BlockCarusel({ blocks }: Props) {
         </div>
       </div>
       <button
-        style={{
-          position: 'absolute',
-          left: '182vh',
-          top: '105vh',
-          fontSize: '2rem',
-          borderRadius: '50%',
-          background: 'none',
-          opacity: currentIndex === lastIndex ? '0' : '0.5',
-        }}
-        onClick={onNext}
-      >
-        {' '}
-        {'>'}
-      </button>
-      <button
-        style={{
-          position: 'absolute',
-          left: '40vh',
-          top: '105vh',
-          fontSize: '2rem',
-          borderRadius: '50%',
-          background: 'none',
-          opacity: currentIndex === 0 ? '0' : '0.5',
-        }}
+        className={s.btnCarouselLeft}
+        style={
+          {
+            //  opacity: currentIndex === 0 ? '0' : '0.5',
+          }
+        }
         onClick={onPrev}
       >
         {' '}
-        {'<'}
+        {'⟨'}
+      </button>
+      <button
+        className={s.btnCarouselRight}
+        style={
+          {
+            // opacity: currentIndex === lastIndex ? '0' : '0.5',
+          }
+        }
+        onClick={onNext}
+      >
+        {' '}
+        {'⟩'}
       </button>
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Искользую при отрисовке только один блок из blocks
 // import s from './/body.module.css';
