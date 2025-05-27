@@ -34,6 +34,7 @@ export function Body() {
       
       <CercleNav
       blocks={response}
+      currentIndex={currentIndex}
       setCurrentIndex={setCurrentIndex}
       />
       <div className={s.gradientHeader} ></div>
