@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import s from './/body.module.css';
 
 import { SphereBlock, Description } from './mock/types';
@@ -9,7 +10,45 @@ export interface Props {
   currentIndex: number
 }
 export function BlockCarusel({ blocks, onPrev, onNext, currentIndex }: Props) {
-  // const [currentIndex, setCurrentIndex] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null)
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+useEffect(() => {
+    const slider = sliderRef.current;
+    console.log(slider, '😘')
+    if (!slider) return;
+
+    function onPointerDown(e: PointerEvent) {
+      isDown.current = true;
+      slider!.setPointerCapture(e.pointerId);
+      startX.current     = e.pageX;
+      scrollLeft.current = slider!.scrollLeft;
+    }
+    function onPointerMove(e: PointerEvent) {
+      if (!isDown.current) return;
+      // console.log(e.pageX, '❤️')
+      const dx = e.pageX - startX.current;
+      slider!.scrollLeft = scrollLeft.current - dx;
+    }
+    function onPointerUp(e: PointerEvent) {
+      isDown.current = false;
+      slider!.releasePointerCapture(e.pointerId);
+    }
+
+    slider.addEventListener('pointerdown', onPointerDown);
+    slider.addEventListener('pointermove', onPointerMove);
+    slider.addEventListener('pointerup',   onPointerUp);
+
+    return () => {
+      slider.removeEventListener('pointerdown', onPointerDown);
+      slider.removeEventListener('pointermove', onPointerMove)
+      slider.removeEventListener('pointerup', onPointerUp)
+    }
+
+  }, []);
+  
   const lastIndex = blocks.length - 1;
   const block = blocks[currentIndex];
 
@@ -21,19 +60,6 @@ export function BlockCarusel({ blocks, onPrev, onNext, currentIndex }: Props) {
   }
   const { startYear, endYear } = getYearPeriod(block.data);
 
-  // function onPrev() {
-  //   setCurrentIndex((prev) => {
-  //     return Math.max(prev - 1, 0);
-  //   });
-  // }
-  // function onNext() {
-  //   setCurrentIndex((prev) => {
-  //     // if(prev + 1 > blocks.length - 1) {
-  //     //     return 0
-  //     // }
-  //     return Math.min(prev + 1, blocks.length - 1);
-  //   });
-  // }
 
   return (
     <>
@@ -99,8 +125,9 @@ export function BlockCarusel({ blocks, onPrev, onNext, currentIndex }: Props) {
         </svg>
       </button>
       <div
+      ref={sliderRef}
         className={s.viewport}
-        style={{ position: 'absolute', top: '75%', left: '18%' }}
+        style={{ position: 'absolute', top: '75%', left: '18%', overflowX: 'auto' }}
       >
         <div
           //   className={s.descriptionEvents} style={{ margin: '0 20% 0 16%' }}

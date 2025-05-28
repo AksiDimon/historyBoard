@@ -16,7 +16,7 @@ export function CercleNav({ blocks, setCurrentIndex, currentIndex }: CercleNavPr
 
 const prevRef = useRef(currentIndex);
 const circleRef = useRef<HTMLDivElement>(null)
-
+console.log(circleRef, '📕')
 useEffect(() => {
     if(circleRef.current) {
         const diff = Math.abs(currentIndex - prevRef.current);

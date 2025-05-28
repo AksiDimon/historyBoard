@@ -180,6 +180,9 @@ color: #42567A;
     /* top: 75%;
     left: 18%; */
 }
+.viewport:active {
+  cursor: grabbing;
+}
 
 .track {
     display: flex;
