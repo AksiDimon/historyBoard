@@ -1,8 +1,22 @@
+
+import styled from 'styled-components';
 import s from './body.module.css';
 import {response} from './mock/storageData.js';
 import { BlockCarusel } from './BlockCarusel';
 import { CercleNav } from './CercleNav';
 import { useState } from 'react';
+
+
+
+const StyledBody = styled.div`
+  background: ${({ theme }) => theme.bg};
+  color: ${({ theme }) => theme.color};
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s;
+`;
 
 
 export function Body() {
@@ -24,7 +38,8 @@ export function Body() {
   }
   return (
     <>
-    {/* <div className={s.container}>
+    <StyledBody>
+      {/* <div className={s.container}>
 
     </div> */}
       <div className={s.lineVertical}> вотс </div>
@@ -53,6 +68,8 @@ export function Body() {
         currentIndex={currentIndex}
         />
       </div>
+    </StyledBody>
+    
     </>
   );
 }

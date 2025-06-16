@@ -9,7 +9,32 @@ html{
     zoom: 0.5;
 }
 
-
+.buttonThemeParent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 207vw;
+ 
+}
+.buttonTheme{
+  border: none;
+  background-color: var(--fg);
+  opacity: 0.7;
+  border-radius: 8px;
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.3em;
+  box-sizing: content-box;
+   z-index: 10;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.buttonTheme:hover{
+  transform: scale(2);
+  opacity: 1;
+  background-color: #42567A;
+  color: aliceblue;
+}
 
 .lineHorisontal{
 position: absolute;
@@ -17,7 +42,8 @@ top: 50%;
 left: 10%;
 right: 10%;
 opacity: 0.1;
-border-top: 1px solid #42567A;
+border-top: 1px solid var(--fg);
+
 
 }
 .rightLine {
@@ -74,7 +100,7 @@ font-weight: 700;
 font-size: 3.5rem;
 
 /* Black blue */
-color: #42567A;
+color: var(--fg);
 
 
 }
@@ -87,6 +113,7 @@ color: #42567A;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
+    pointer-events: none; /* для уменьшения веса вместо z-index */
 }
 .buttonLeft{
     /* Group 3277 */
@@ -164,7 +191,7 @@ line-height: 30px;
 /* or 150% */
 
 /* Black blue */
-color: #42567A;
+color: var(--fg);
 
 
 }
@@ -257,21 +284,20 @@ color: #42567A;
   top: 0; left: 0;
   width: 205.5vw;
   height: 200vh;
-
   display: flex;
   justify-content: center;  /* центр по горизонтали */
   align-items: center;      /* центр по вертикали */
 }
 
 .cercle {
-  --containerWidth: 500px;
+  --containerWidth: 90vh;
   --transitionDuration: 500ms;
   width: var(--containerWidth);
   height: var(--containerWidth);
   border-radius: 50%;
   border: #42567A 1px solid;
   position: relative;
-  margin: 100px auto;
+  /* margin: 100px auto; */
   transition: transform var(--transitionDuration) ease-in-out;
 }
 

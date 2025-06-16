@@ -10,5 +10,5 @@
     "skipLibCheck": true, // Пропускает проверку типов в библиотеках
     "isolatedModules": true // Ожидает, что каждый файл будет являться отдельным модулем
   },
-  "include": ["src"]
+  "include": ["src", "styled.d.ts"]
 }

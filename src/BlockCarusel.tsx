@@ -1,6 +1,7 @@
+
 import { useEffect, useRef } from 'react';
 import s from './/body.module.css';
-
+import { CircleButton } from './styles/cercleButton';
 import { SphereBlock, Description } from './mock/types';
 
 export interface Props {
@@ -9,6 +10,8 @@ export interface Props {
   onPrev: () => void;
   currentIndex: number
 }
+
+
 export function BlockCarusel({ blocks, onPrev, onNext, currentIndex }: Props) {
   const sliderRef = useRef<HTMLDivElement>(null)
   const isDown = useRef(false);
@@ -23,6 +26,7 @@ useEffect(() => {
     function onPointerDown(e: PointerEvent) {
       isDown.current = true;
       slider!.setPointerCapture(e.pointerId);
+      console.log(sliderRef, '❤️')
       startX.current     = e.pageX;
       scrollLeft.current = slider!.scrollLeft;
     }
@@ -77,53 +81,11 @@ useEffect(() => {
         {(currentIndex + 1).toString().padStart(2, '0')} /{' '}
         {(lastIndex + 1).toString().padStart(2, '0')}
       </p>
-      <button onClick={onPrev} className={s.buttonLeft}>
-        <svg
-          width="50"
-          height="50"
-          viewBox="0 0 50 50"
-          overflow="visible"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="25"
-            cy="25"
-            r="24.5"
-            transform="matrix(-1 0 0 1 50 0)"
-            stroke="currentColor"
-            strokeOpacity="0.5"
-          />
-          <path
-            d="M27.4999 18.75L21.2499 25L27.4999 31.25"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-        </svg>
-      </button>
-      <button onClick={onNext} className={s.buttonRight}>
-        <svg
-          width="50"
-          height="50"
-          viewBox="0 0 50 50"
-          overflow="visible"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="25"
-            cy="25"
-            r="24.5"
-            stroke="currentColor"
-            strokeOpacity="0.5"
-          />
-          <path
-            d="M22.5001 18.75L28.7501 25L22.5001 31.25"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-        </svg>
-      </button>
+      <CircleButton onClick={onPrev} className={s.buttonLeft} direction = 'left' arrowX={43} arrowY={40}>
+        
+      </CircleButton>
+      <CircleButton onClick={onNext} className={s.buttonRight} direction = 'right' arrowX={36} arrowY={40}>
+      </CircleButton>
       <div
       ref={sliderRef}
         className={s.viewport}
@@ -152,7 +114,7 @@ useEffect(() => {
         className={s.btnCarouselLeft}
         style={
           {
-            //  opacity: currentIndex === 0 ? '0' : '0.5',
+             opacity: currentIndex === 0 ? '0' : '0.5',
           }
         }
         onClick={onPrev}
@@ -164,7 +126,7 @@ useEffect(() => {
         className={s.btnCarouselRight}
         style={
           {
-            // opacity: currentIndex === lastIndex ? '0' : '0.5',
+            opacity: currentIndex === lastIndex ? '0' : '0.5',
           }
         }
         onClick={onNext}
