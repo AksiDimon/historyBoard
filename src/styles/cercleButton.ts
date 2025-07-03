@@ -5,14 +5,16 @@ type Direction = 'left' | 'right'
 export interface CircleButtonProps {
   direction: Direction;
   arrowX: number;
-  arrowY:number
+  arrowY:number;
+   size?:     string; 
   onClick?: () => void;
 }
 // общий компонент «круглой кнопки» с направлением стрелки
 export const CircleButton = styled.button<CircleButtonProps>`
   /* размер и позиционирование */
-  width: 50px;
-  height: 50px;
+  width : ${({ size = '50px' }) => size};
+  height: ${({ size = '50px' }) => size};
+
   position: absolute;
   left: ${({ direction }) => (direction === 'left' ? '17%' : '20%')};
   top: 67%;

@@ -115,15 +115,25 @@ color: var(--fg);
     z-index: 0;
     pointer-events: none; /* для уменьшения веса вместо z-index */
 }
+
+.controls {
+  position: absolute;
+  top: 67%;
+  left: 18%;
+  right: 10%;
+  display: flex;
+  width: 10vh;
+  justify-content: space-between;
+}
 .buttonLeft{
     /* Group 3277 */
 border: none;
 background-color: #42567a00;
 opacity: 0.5;
-  transition: color .2s, opacity .2s;
+transition: color .2s, opacity .2s;
 position: absolute;
-max-width: 50px;
-max-height: 50px;
+max-width: 10vw;
+max-height: 10vh;
 left: 17%;
 top: 67%;
 
@@ -149,9 +159,9 @@ background-color: #42567a00;
 opacity: 0.5;
 transition: color .2s, opacity .2s;
 position: absolute;
-width: 50px;
-height: 50px;
-left: 20%;
+max-width: 10vw;
+max-height: 10vh;
+right: 76%;
 top: 67%;
 }
 .buttonRight:hover{
@@ -175,7 +185,7 @@ top: 67%;
 }
 
 .descriptionText{
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
     white-space: wrap;
     
 
@@ -282,7 +292,7 @@ color: var(--fg);
 .cercleParent{
   position: fixed;      /* или absolute, но fixed привяжет к viewport */
   top: 0; left: 0;
-  width: 205.5vw;
+  width: 201vw;
   height: 200vh;
   display: flex;
   justify-content: center;  /* центр по горизонтали */
@@ -291,6 +301,7 @@ color: var(--fg);
 
 .cercle {
   --containerWidth: 90vh;
+  --containerHight: 90vh
   --transitionDuration: 500ms;
   width: var(--containerWidth);
   height: var(--containerWidth);

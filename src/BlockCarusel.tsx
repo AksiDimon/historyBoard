@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import s from './/body.module.css';
 import { CircleButton } from './styles/cercleButton';
@@ -8,26 +7,25 @@ export interface Props {
   blocks: SphereBlock[];
   onNext: () => void;
   onPrev: () => void;
-  currentIndex: number
+  currentIndex: number;
 }
 
-
 export function BlockCarusel({ blocks, onPrev, onNext, currentIndex }: Props) {
-  const sliderRef = useRef<HTMLDivElement>(null)
+  const sliderRef = useRef<HTMLDivElement>(null);
   const isDown = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
-useEffect(() => {
+  useEffect(() => {
     const slider = sliderRef.current;
-    console.log(slider, '😘')
+    console.log(slider, '😘');
     if (!slider) return;
 
     function onPointerDown(e: PointerEvent) {
       isDown.current = true;
       slider!.setPointerCapture(e.pointerId);
-      console.log(sliderRef, '❤️')
-      startX.current     = e.pageX;
+      console.log(sliderRef, '❤️');
+      startX.current = e.pageX;
       scrollLeft.current = slider!.scrollLeft;
     }
     function onPointerMove(e: PointerEvent) {
@@ -43,16 +41,15 @@ useEffect(() => {
 
     slider.addEventListener('pointerdown', onPointerDown);
     slider.addEventListener('pointermove', onPointerMove);
-    slider.addEventListener('pointerup',   onPointerUp);
+    slider.addEventListener('pointerup', onPointerUp);
 
     return () => {
       slider.removeEventListener('pointerdown', onPointerDown);
-      slider.removeEventListener('pointermove', onPointerMove)
-      slider.removeEventListener('pointerup', onPointerUp)
-    }
-
+      slider.removeEventListener('pointermove', onPointerMove);
+      slider.removeEventListener('pointerup', onPointerUp);
+    };
   }, []);
-  
+
   const lastIndex = blocks.length - 1;
   const block = blocks[currentIndex];
 
@@ -63,7 +60,6 @@ useEffect(() => {
     };
   }
   const { startYear, endYear } = getYearPeriod(block.data);
-
 
   return (
     <>
@@ -81,15 +77,34 @@ useEffect(() => {
         {(currentIndex + 1).toString().padStart(2, '0')} /{' '}
         {(lastIndex + 1).toString().padStart(2, '0')}
       </p>
-      <CircleButton onClick={onPrev} className={s.buttonLeft} direction = 'left' arrowX={43} arrowY={40}>
-        
-      </CircleButton>
-      <CircleButton onClick={onNext} className={s.buttonRight} direction = 'right' arrowX={36} arrowY={40}>
-      </CircleButton>
+      <div>
+        <CircleButton
+        onClick={onPrev}
+        //  size= '3.2%'
+        // className={s.buttonLeft}
+        direction="left"
+        arrowX={43}
+        arrowY={40}
+      ></CircleButton>
+      <CircleButton
+        onClick={onNext}
+        // style = {{left: '50vh',top: '134vh'}}
+        // className={s.buttonRight}
+        direction="right"
+        arrowX={36}
+        arrowY={40}
+      ></CircleButton>
+      </div>
+      
       <div
-      ref={sliderRef}
+        ref={sliderRef}
         className={s.viewport}
-        style={{ position: 'absolute', top: '75%', left: '18%', overflowX: 'auto' }}
+        style={{
+          position: 'absolute',
+          top: '75%',
+          left: '18%',
+          overflowX: 'auto',
+        }}
       >
         <div
           //   className={s.descriptionEvents} style={{ margin: '0 20% 0 16%' }}
@@ -110,7 +125,22 @@ useEffect(() => {
           ))}
         </div>
       </div>
-      <button
+
+      <CircleButton
+        style={{
+          top: '160vh',
+          left: '27vw',
+          opacity: currentIndex === 0 ? '0' : '0.5',
+        }}
+        onClick={onPrev}
+        className={s.buttonLeft}
+        direction="left"
+        arrowX={43}
+        arrowY={40}
+      >
+        {' '}
+      </CircleButton>
+      {/* <button
         className={s.btnCarouselLeft}
         style={
           {
@@ -119,10 +149,25 @@ useEffect(() => {
         }
         onClick={onPrev}
       >
-        {' '}
+        
         {'⟨'}
-      </button>
-      <button
+      </button> */}
+
+      <CircleButton
+        style={{
+          top: '160vh',
+          left: '170vw',
+          opacity: currentIndex === lastIndex ? '0' : '0.5',
+        }}
+        onClick={onNext}
+        className={s.buttonRight}
+        direction="right"
+        arrowX={36}
+        arrowY={40}
+      >
+        {' '}
+      </CircleButton>
+      {/* <button
         className={s.btnCarouselRight}
         style={
           {
@@ -131,9 +176,8 @@ useEffect(() => {
         }
         onClick={onNext}
       >
-        {' '}
-        {'⟩'}
-      </button>
+        {'>'}
+      </button> */}
     </>
   );
 }

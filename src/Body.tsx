@@ -42,10 +42,10 @@ export function Body() {
       {/* <div className={s.container}>
 
     </div> */}
-      <div className={s.lineVertical}> вотс </div>
+      <div className={s.lineVertical}> </div>
       <div className={s.rightLine}> </div>
       <div className={s.leftLine}> </div>
-      <div className={s.lineHorisontal}>lineHorisontal</div>
+      <div className={s.lineHorisontal}></div>
       
       <CercleNav
       blocks={response}
