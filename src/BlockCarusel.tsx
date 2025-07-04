@@ -85,6 +85,7 @@ export function BlockCarusel({ blocks, onPrev, onNext, currentIndex }: Props) {
         direction="left"
         arrowX={43}
         arrowY={40}
+        style = {{opacity: '0.6'}}
       ></CircleButton>
       <CircleButton
         onClick={onNext}
@@ -93,6 +94,7 @@ export function BlockCarusel({ blocks, onPrev, onNext, currentIndex }: Props) {
         direction="right"
         arrowX={36}
         arrowY={40}
+        style = {{opacity: '0.6'}}
       ></CircleButton>
       </div>
       

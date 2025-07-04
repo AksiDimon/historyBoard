@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["ES2022", "ES5", "DOM"],
+     "noEmit": true,
     "jsx": "react-jsx",  // Позволяет использовать JSX в TypeScript
     "strict": true,      // Включение строгой проверки типов
     "noUnusedLocals": true, // Убирает неиспользуемые переменные

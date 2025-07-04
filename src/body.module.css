@@ -109,7 +109,7 @@ color: var(--fg);
     font-size: 18vw;
     position: absolute;
 
-    left: 51.5%;
+    left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
